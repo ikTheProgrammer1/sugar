@@ -1,27 +1,18 @@
-import { CategoryType } from '../types/types';
-import { downloadCharacter } from '../utils/downloadUtils';
-import '../styles/Controls.css';
+import React from 'react';
 
 interface ControlsProps {
-  onShowOptions: (category: CategoryType) => void;
+  onDownload: () => void;
+  onRandomize: () => void;
   onReset: () => void;
 }
 
-const Controls = ({ onShowOptions, onReset }: ControlsProps) => {
+const Controls: React.FC<ControlsProps> = ({ onDownload, onRandomize, onReset }) => {
   return (
-    <>
-      <div className="controls">
-        <button onClick={downloadCharacter}>Download</button>
-        <button onClick={() => console.log('Randomize')}>Randomize</button>
-        <button onClick={onReset}>Reset</button>
-      </div>
-      <div className="category-buttons">
-        <button onClick={() => onShowOptions('background')}>Background</button>
-        <button onClick={() => onShowOptions('hat')}>Hat</button>
-        <button onClick={() => onShowOptions('clothing')}>Clothing</button>
-        <button onClick={() => onShowOptions('hands')}>Hands</button>
-      </div>
-    </>
+    <div className="controls">
+      <button onClick={onDownload}>Download</button>
+      <button onClick={onRandomize}>Randomize</button>
+      <button onClick={onReset}>Reset</button>
+    </div>
   );
 };
 
