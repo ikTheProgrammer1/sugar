@@ -45,19 +45,24 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app-container">
-      <div className="left-section">
-        <CharacterDisplay selectedTraits={selectedTraits} />
-        <div className="controls">
-          <button className="control-button" onClick={handleDownloadImage}>
-            Download
-          </button>
+    <>
+      <div className="app-container">
+        <div className="left-section">
+          <CharacterDisplay selectedTraits={selectedTraits} />
+          <div className="controls">
+            <button className="control-button" onClick={handleDownloadImage}>
+              Download
+            </button>
+          </div>
+        </div>
+        <div className="right-section">
+          <TraitsPanel onSelect={handleTraitSelect} selectedTraits={selectedTraits} />
         </div>
       </div>
-      <div className="right-section">
-        <TraitsPanel onSelect={handleTraitSelect} selectedTraits={selectedTraits} />
-      </div>
-    </div>
+      <footer>
+        © 2024 Squirrel Customizer
+      </footer>
+    </>
   );
 };
 
