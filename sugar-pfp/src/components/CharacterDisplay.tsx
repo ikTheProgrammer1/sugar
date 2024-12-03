@@ -24,7 +24,7 @@ const CharacterDisplay: React.FC<CharacterDisplayProps> = ({ selectedTraits }) =
 
       {/* Base Squirrel */}
       <img
-        src="/assets/images/squirrel.png"
+        src="assets/images/squirrel.png"
         alt="Base Squirrel"
         className="character-image"
       />
