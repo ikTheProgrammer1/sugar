@@ -1,0 +1,152 @@
+body {
+    background-color: #E8F3E8;
+    background-image: url('../images/acornbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.character-frame {
+    width: 512px;
+    height: 512px;
+    position: relative;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+}
+
+/* Layer positioning */
+.background-layer,
+.base-character,
+.hands-layer,
+.clothing-layer,
+.hat-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Z-index ordering (from back to front) */
+.background-layer { z-index: 1; display: none; background-size: cover; background-position: center; }
+.base-character { z-index: 2; }
+.hands-layer { z-index: 3; }
+.clothing-layer { z-index: 4; }
+.hat-layer { z-index: 5; }
+
+/* Button Styling */
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Comic Sans MS', cursive;
+    color: white;
+    background-color: #333;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: -1px -1px 0 #000, 
+                  1px -1px 0 #000,
+                 -1px  1px 0 #000,
+                  1px  1px 0 #000;
+}
+
+/* Control sections styling */
+.customization-controls > div {
+    margin: 10px 0;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.category-buttons {
+    margin: 20px 0;
+}
+
+.category-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+}
+
+.options-panel {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+.options-panel button {
+    margin: 5px;
+    padding: 8px 15px;
+}
+
+.item-button {
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.item-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-button:hover {
+    border-color: #666;
+}
+
+.options-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.character-display {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.character-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.trait-layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Prevent interactions */
+}
