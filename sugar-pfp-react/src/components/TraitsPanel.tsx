@@ -5,13 +5,29 @@ import { EEyes } from "../enums/EEyes";
 import { EHands } from "../enums/EHands";
 import { EHats } from "../enums/EHats";
 
-const TraitsPanel: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("Backgrounds");
+type Traits = {
+  Backgrounds: string;
+  Clothing: string;
+  Eyes: string;
+  Hands: string;
+  Hats: string;
+};
+interface TraitsPanelProps {
+  onSelect: (category: keyof Traits, option: string) => void;
+  selectedTraits: {
+    Backgrounds: string;
+    Clothing: string;
+    Eyes: string;
+    Hands: string;
+    Hats: string;
+  };
+}
 
-  // Categories list
+const TraitsPanel: React.FC<TraitsPanelProps> = ({ onSelect, selectedTraits }) => {
+  const [activeCategory, setActiveCategory] = useState<keyof Traits>("Backgrounds");
+
   const categories = ["Backgrounds", "Clothing", "Eyes", "Hands", "Hats"];
 
-  // Options mapped by category
   const optionsByCategory: { [key: string]: string[] } = {
     Backgrounds: EBackgrounds,
     Clothing: EClothing,
@@ -20,7 +36,6 @@ const TraitsPanel: React.FC = () => {
     Hats: EHats,
   };
 
-  // Get options for the active category
   const activeOptions = optionsByCategory[activeCategory] || [];
 
   return (
@@ -31,7 +46,7 @@ const TraitsPanel: React.FC = () => {
           <button
             key={category}
             className={`tab-button ${activeCategory === category ? "active" : ""}`}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => setActiveCategory(category as keyof Traits)}
           >
             {category}
           </button>
@@ -43,7 +58,10 @@ const TraitsPanel: React.FC = () => {
             key={index}
             src={option}
             alt={`${activeCategory} Option ${index + 1}`}
-            className="option-image"
+            className={`option-image ${
+              selectedTraits[activeCategory] === option ? "selected" : ""
+            }`}
+            onClick={() => onSelect(activeCategory, option)} // Handle selection/deselection
           />
         ))}
       </div>

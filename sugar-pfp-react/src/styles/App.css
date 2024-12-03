@@ -45,12 +45,6 @@ body, html {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.character-image {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 10px;
-}
-
 .controls {
   display: flex;
   gap: 10px; /* Add space between buttons */
@@ -137,15 +131,87 @@ body, html {
 
 .option-image {
   width: 100%;
-  aspect-ratio: 1;
-  border: 2px solid #3E2723; /* Dark brown */
+  height: auto;
+  border: 2px solid transparent;
   border-radius: 8px;
-  background: #F5DEB3; /* Wheat color */
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  background: #F5DEB3; /* Wheat color */
 }
 
 .option-image:hover {
   transform: scale(1.1);
   background: #D2691E; /* Chocolate */
+}
+
+.option-image.selected {
+  border-color: #228B22; /* Forest green to indicate selection */
+  box-shadow: 0 0 8px rgba(34, 139, 34, 0.5); /* Add glow effect */
+}
+
+.character-display {
+  width: 300px; /* Adjust to match base squirrel dimensions */
+  height: 350px; /* Adjust height proportionally */
+  position: relative;
+  background-color: #000; /* Background color (hidden by layers) */
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* Center all layers */
+  justify-content: center;
+}
+
+.character-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Fit the container */
+  height: 100%;
+  z-index: 1; /* Base squirrel is beneath traits */
+}
+
+.trait-layer {
+  position: absolute;
+  width: 100%; /* Scale to match the container */
+  height: 100%;
+  object-fit: contain; /* Maintain aspect ratio without distortion */
+  pointer-events: none; /* Disable interactions with layers */
+  z-index: 2; /* Above the squirrel but below text */
+}
+
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Background is at the lowest layer */
+  object-fit: cover; /* Fully cover the container */
+}
+
+.clothing-layer {
+  position: absolute;
+  top: 5%; /* Adjust clothing position */
+  left: -7%;
+  width: 111%;
+  height: auto;
+  z-index: 2;
+}
+
+.eyes-layer {
+  position: absolute;
+  top: 9%; /* Adjust eye alignment */
+  left: -1%;
+  width: 100%; /* Only cover the eye area */
+  height: auto;
+  z-index: 3;
+}
+
+.hats-layer {
+  position: absolute;
+  top: 8%; /* Adjust hat position */
+  left: -1%;
+  width: 100%;
+  height: auto;
+  z-index: 4; /* Ensure hats are above all layers */
 }
