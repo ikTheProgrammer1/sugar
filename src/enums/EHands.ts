@@ -8,7 +8,4 @@ export const EHands = [
   "assets/images/hands/2-ardillas-512-goku.png",
   "assets/images/hands/2-ardillas-512-ninja-shuruken.png",
   "assets/images/hands/2-ardillas-512-sw-2-braces.png",
-  "assets/images/hands/StarWars1hands.png",
-  "assets/images/hands/Starwarshandbraces.png",
-  "assets/images/hands/starwarslightsaber.png"
 ];

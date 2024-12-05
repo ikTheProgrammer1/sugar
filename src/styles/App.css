@@ -142,8 +142,8 @@ body, html {
 .character-image {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%; 
+  left: 3%;
+  width: 90%; 
   height: 100%;
   z-index: 1; 
 }
@@ -173,13 +173,13 @@ body, html {
   left: -7%;
   width: 111%;
   height: auto;
-  z-index: 2;
+  z-index: 1;
 }
 
 .eyes-layer {
   position: absolute;
-  top: 9%; 
-  left: -1%;
+  top: 8%; 
+  left: -3%;
   width: 100%; 
   height: auto;
   z-index: 3;
@@ -187,11 +187,20 @@ body, html {
 
 .hats-layer {
   position: absolute;
-  top: 8%; 
-  left: -1%;
+  top: 7%; 
+  left: -2%;
   width: 100%;
   height: auto;
   z-index: 4; 
+}
+
+.hands-layer {
+  position: absolute;
+  top: 13%; 
+  left: -3%;
+  width: 100%;
+  height: auto;
+  z-index: 5; 
 }
 
 footer {
